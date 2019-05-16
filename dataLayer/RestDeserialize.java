@@ -9,7 +9,12 @@ import java.util.List;
 import businessLayer.MenuItem;
 public class RestDeserialize implements Serializable{
 
-	   public List<MenuItem> deserialize() {
+	   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public List<MenuItem> deserialize() {
 		  List<MenuItem> listaDes;
 	      try {
 	         FileInputStream fileIn = new FileInputStream("meniu.ser");
@@ -17,11 +22,8 @@ public class RestDeserialize implements Serializable{
 	         listaDes = (ArrayList<MenuItem>) in.readObject();
 	         in.close();
 	         fileIn.close();
-	      } catch (IOException i) {
+	      } catch (Exception i) {
 	         i.printStackTrace();
-	         return null;
-	      } catch (ClassNotFoundException c) {
-	         c.printStackTrace();
 	         return null;
 	      }
 		return listaDes;

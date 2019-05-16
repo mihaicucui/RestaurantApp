@@ -10,6 +10,11 @@ import java.util.List;
 import businessLayer.MenuItem;
 
 public class RestSerialize implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void serialize(List<MenuItem> m){
 		try {
 		FileOutputStream fileOut =new FileOutputStream("meniu.ser");
@@ -17,7 +22,7 @@ public class RestSerialize implements Serializable {
         out.writeObject(m);
         out.close();
         fileOut.close();
-		}catch(IOException i) {
+		}catch(Exception i) {
 			i.printStackTrace();
 		}
 	}
